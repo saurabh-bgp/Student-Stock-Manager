@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/stock")
+@CrossOrigin
 public class StockController {
     @Autowired
     private StockServiceImp stockService;
@@ -23,11 +24,6 @@ public class StockController {
     @PostMapping("/addStock")
     public ResponseEntity<Long> saveStock(@RequestBody Stock stock){
         return new ResponseEntity<Long>(stockService.saveStock(stock), HttpStatus.CREATED);
-    }
-
-    @PostMapping("/addMultipleStock")
-        public String saveMulStock(@RequestBody List<Stock> stocks){
-        return stockService.addMulStock(stocks);
     }
 
     @GetMapping("/getStockByGender/{gender}")

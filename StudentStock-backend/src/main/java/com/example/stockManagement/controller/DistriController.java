@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/distribution")
+@CrossOrigin
 public class DistriController {
     @Autowired
     private DistrServiceImp distrServiceImp;
@@ -28,7 +29,7 @@ public class DistriController {
 //        return new ResponseEntity<Long>(stockService.saveStock(stock), HttpStatus.CREATED);
 //    }
 
-    @PostMapping("/disteribute")
+    @PostMapping("/distribute")
     public ResponseEntity<String> distribute(@RequestBody DistriDto distributedItem){
         return new ResponseEntity<String>(distrServiceImp.distribute(distributedItem),HttpStatus.CREATED);
     }
