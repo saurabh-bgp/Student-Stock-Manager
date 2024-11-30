@@ -18,8 +18,8 @@ public class DistributedItem {
     private Long id;
 
     private String studentName;
-    private String gender;  // "boy" or "girl"
+    private String gender;
     private Integer shirtSize;
     private Integer pantSize;
-    private Integer bagDistributed;  // "Yes" or "No"
+    private Integer bagDistributed;
 }

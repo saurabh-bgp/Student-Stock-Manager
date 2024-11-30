@@ -18,17 +18,6 @@ public class DistrServiceImp implements DistrService{
     @Autowired
     private DistriRepo distriRepo;
 
-//    @Override
-//    public long saveStock(Stock stock){
-//        Stock _stock = stockRepo.save(stock);
-//        return _stock.getId();
-//    }
-
-//    @Override
-//    public long distribute(DistributedItem distributedItem){
-//        DistributedItem _dist = distriRepo.save(distributedItem);
-//        return _dist.getId();
-//    }
 
     @Override
     public String distribute(DistriDto dto){
@@ -41,21 +30,9 @@ public class DistrServiceImp implements DistrService{
             System.out.println("no data in stock");
         }
 
-//        Stock pantStock = (Stock) stockRepo.findByTypeAndGenderAndItemName(dto.getGender(), "pant", dto.getPantSize())
-//                .orElseThrow(() -> new RuntimeException("Requested pant size not available"));
-//
-//        Stock bagStock = (Stock) stockRepo.findByType("bag").orElseThrow(() -> new RuntimeException("Bags not available"));
-
-        // Ensure sufficient stock
         if(stock.getShirtQuantity()<1 || stock.getPantQuantity()<1 || stock.getBagQuantity()<1){
             return "Insufficient stock";
         }
-
-//        if (shirtStock.getQuantity() < 1 || pantStock.getQuantity() < 1 || bagStock.getQuantity() < 1) {
-//            return "Insufficient stock to distribute";
-//        }
-
-//         Deduct one item from each stock
         Stock temp = new Stock();
         temp.setGender(stock.getGender());
         temp.setShirtSize(stock.getShirtSize());
@@ -70,7 +47,6 @@ public class DistrServiceImp implements DistrService{
         stockRepo.delete(stock);
         stockRepo.save(temp);
 
-        // Save distribution record
         DistributedItem distributedItem = new DistributedItem();
         distributedItem.setStudentName(dto.getStudentName());
         distributedItem.setGender(dto.getGender());

@@ -10,7 +10,5 @@ public interface StockService {
 
         List<Stock> getAllStock();
 
-        String addMulStock(List<Stock> records);
-
         List<Stock> getStockByGender(String gender);
 }

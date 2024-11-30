@@ -22,11 +22,6 @@ public class StockServiceImp implements StockService{
         return _stock.getId();
     }
 
-    public String addMulStock(List<Stock> records){
-        stockRepo.saveAll(records);
-        return records.size()+ " records added.";
-    }
-
     @Override
     public List<Stock> getStockByGender(String gender){
         return stockRepo.findStockByGender(gender);

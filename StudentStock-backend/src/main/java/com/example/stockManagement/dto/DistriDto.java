@@ -16,9 +16,9 @@ public class DistriDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // This will be the primary key
+    private Long id;
     private String studentName;
-    private String gender;  // "boy" or "girl"
+    private String gender;
     private Integer shirtSize;
     private Integer pantSize;
 }

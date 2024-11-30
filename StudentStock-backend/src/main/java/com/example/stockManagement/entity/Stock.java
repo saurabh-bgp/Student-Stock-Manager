@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String gender;
